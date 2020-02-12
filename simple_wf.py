@@ -5,7 +5,6 @@ from pycompss.api.constraint import constraint
 from pycompss.api.parameter import *
 from pycompss.api.api import compss_wait_on
 import subprocess
-import patch
 
 @task(input_pdb_dir, haddock_img, returns=string )
 def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddock24.sif'):
@@ -32,8 +31,8 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
         subprocess.Popen(singularity_cmd + cmd, shell=True)
 
         os.chdir('run1-ranair')
-
-        pset = patch.fromfile('../../../data/run.cns.patch-ranair')
+        cmd = ["patch", "-p0",  "-i",  "../../../data/run.cns.patch-ranair"]
+        subprocess.Popen(cmd, shell=True)
 
         return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
 
