@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import traceback
 import os
 from pycompss.api.task import task
@@ -24,15 +26,12 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
 
         os.chdir(input_pdb_dir)
 
-        cmd="cp ligand* run1-ranair/toppar >&/dev/null"
-        singularity_cmd = ['singularity', 'exec', haddock_img]
-        cmd = ['"' + " ".join(cmd) + '"']
-        singularity_cmd.extend(['/bin/bash', '-c'])
-        subprocess.Popen(singularity_cmd + cmd, shell=True)
+        singularity_cmd = [haddock_img, "cp ligand* run1-ranair/toppar >&/dev/null"]
+        subprocess.run(singularity_cmd, shell=True)
 
         os.chdir('run1-ranair')
         cmd = ["patch", "-p0",  "-i",  "../../../data/run.cns.patch-ranair"]
-        subprocess.Popen(cmd, shell=True)
+        subprocess.run(cmd, shell=True)
 
         return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
 
@@ -40,11 +39,9 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
 @task(input_run1_air_dir, haddock_img)
 def run_haddock(input_run1_air_dir, haddock_img):
     os.chdir(input_run1_air_dir)
-    cmd = ["/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
-    singularity_cmd = ['singularity', 'exec', haddock_img]
-    subprocess.Popen(singularity_cmd + cmd, shell=True)
-
-
+    singularity_cmd = [haddock_img, "/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
+    subprocess.run(singularity_cmd, shell=True)
+    
 pdbs_dir=""
 haddock_img=""
 for pdb_dir in os.listdir(pdbs_dir):
