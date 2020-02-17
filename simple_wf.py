@@ -8,8 +8,9 @@ from pycompss.api.parameter import *
 from pycompss.api.api import compss_wait_on
 import subprocess
 
-@task(input_pdb_dir, haddock_img, returns=string )
+@task(input_pdb_dir=IN, haddock_img=IN, returns=1)
 def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddock24.sif'):
+    print(os.getcwd())
     pdb_id = os.path.basename(input_pdb_dir)
     with open(os.path.join(input_pdb_dir, 'run.param'), 'w') as runparam:
         runparam.write('HADDOCK_DIR=/software/haddock2.4' + '\n')
@@ -23,29 +24,38 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
         runparam.write('RUN_NUMBER=1-ranair' + '\n')
         if os.path.exists(os.path.join(input_pdb_dir, 'hbonds.tbl')):
             runparam.write('HBOND_FILE=hbonds.tbl' + '\n')
-
+        print(os.getcwd())
         os.chdir(input_pdb_dir)
+        print(os.getcwd())
 
         singularity_cmd = [haddock_img, "cp ligand* run1-ranair/toppar >&/dev/null"]
+        print(" ".join(singularity_cmd))
         subprocess.run(singularity_cmd, shell=True)
 
         os.chdir('run1-ranair')
+        print(os.getcwd())
         cmd = ["patch", "-p0",  "-i",  "../../../data/run.cns.patch-ranair"]
+        print(" ".join(cmd))
         subprocess.run(cmd, shell=True)
 
         return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
 
 
-@task(input_run1_air_dir, haddock_img)
+@task(input_run1_air_dir=IN, haddock_img=IN)
 def run_haddock(input_run1_air_dir, haddock_img):
+    print(os.getcwd())
     os.chdir(input_run1_air_dir)
+    print(os.getcwd())
     singularity_cmd = [haddock_img, "/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
+    print(" ".join(singularity_cmd))
     subprocess.run(singularity_cmd, shell=True)
 
-pdbs_dir=""
-haddock_img=""
+    
+pdbs_dir="/home/bsc19/bsc19275/haddock/BM5-clean/HADDOCK-ready/"
+haddock_img="/home/bsc19/bsc19275/haddock/BM5-clean/haddock24.sif"
+
 for pdb_dir in os.listdir(pdbs_dir):
     run_param_path = prepare_pdb(pdb_dir, haddock_img)
     compss_wait_on(run_param_path)
     run_haddock(pdbs_dir+'/run1-ranair', haddock_img)
-    
+    break
