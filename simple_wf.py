@@ -50,12 +50,14 @@ def run_haddock(input_run1_air_dir, haddock_img):
     print(" ".join(singularity_cmd))
     subprocess.run(singularity_cmd, shell=True)
 
-    
-pdbs_dir="/home/bsc19/bsc19275/haddock/BM5-clean/HADDOCK-ready/"
-haddock_img="/home/bsc19/bsc19275/haddock/BM5-clean/haddock24.sif"
 
-for pdb_dir in os.listdir(pdbs_dir):
-    run_param_path = prepare_pdb(pdb_dir, haddock_img)
-    compss_wait_on(run_param_path)
-    run_haddock(pdbs_dir+'/run1-ranair', haddock_img)
-    break
+if __name__ == '__main__':
+    print("hola")
+    pdbs_dir="/home/bsc19/bsc19275/haddock/BM5-clean/HADDOCK-ready/"
+    haddock_img="/home/bsc19/bsc19275/haddock/BM5-clean/haddock24.sif"
+
+    for pdb_dir in os.listdir(pdbs_dir):
+        run_param_path = prepare_pdb(pdb_dir, haddock_img)
+        compss_wait_on(run_param_path)
+        run_haddock(pdbs_dir+'/run1-ranair', haddock_img)
+        break
