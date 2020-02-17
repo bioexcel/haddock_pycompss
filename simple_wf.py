@@ -24,7 +24,7 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
         runparam.write('RUN_NUMBER=1-ranair' + '\n')
         if os.path.exists(os.path.join(input_pdb_dir, 'hbonds.tbl')):
             runparam.write('HBOND_FILE=hbonds.tbl' + '\n')
-        print(os.getcwd())
+        print("Preparing: " + os.getcwd())
         os.chdir(input_pdb_dir)
         print(os.getcwd())
 
@@ -33,7 +33,7 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
         subprocess.run(singularity_cmd, shell=True)
 
         os.chdir('run1-ranair')
-        print(os.getcwd())
+        print("I'm in " + os.getcwd())
         cmd = ["patch", "-p0",  "-i",  "../../../data/run.cns.patch-ranair"]
         print(" ".join(cmd))
         subprocess.run(cmd, shell=True)
