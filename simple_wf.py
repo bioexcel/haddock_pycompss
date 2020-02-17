@@ -41,11 +41,11 @@ def run_haddock(input_run1_air_dir, haddock_img):
     os.chdir(input_run1_air_dir)
     singularity_cmd = [haddock_img, "/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
     subprocess.run(singularity_cmd, shell=True)
-    
+
 pdbs_dir=""
 haddock_img=""
 for pdb_dir in os.listdir(pdbs_dir):
-    run_param_path = prepare_pdb(pdbs_dir, haddock_img)
+    run_param_path = prepare_pdb(pdb_dir, haddock_img)
     compss_wait_on(run_param_path)
     run_haddock(pdbs_dir+'/run1-ranair', haddock_img)
     
