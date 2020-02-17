@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ResourcesList>
+  <SharedDisk Name="gpfs" />
+  <SharedDisk Name="gpfs2" />
+  <ComputeNode Name="s02r2b39-ib0">
+    <Processor Name="MainProcessor">
+      <ComputingUnits>24</ComputingUnits>
+      <Architecture>Intel</Architecture>
+      <Speed>2.6</Speed>
+    </Processor>
+    <Memory>
+      <Size>92</Size>
+    </Memory>
+    <OperatingSystem>
+      <Type>Linux</Type>
+      <Distribution>SMP</Distribution>
+      <Version>3.0.101-0.35-default</Version>
+    </OperatingSystem>
+    <Software>
+      <Application>JAVA</Application>
+      <Application>PYTHON</Application>
+      <Application>EXTRAE</Application>
+      <Application>COMPSS</Application>
+    </Software>
+    <Adaptors>
+      <Adaptor Name="es.bsc.compss.nio.master.NIOAdaptor">
+        <SubmissionSystem>
+          <Interactive/>
+        </SubmissionSystem>
+        <Ports>
+          <MinPort>43001</MinPort>
+          <MaxPort>43002</MaxPort>
+          <RemoteExecutionCommand>none</RemoteExecutionCommand>
+        </Ports>
+      </Adaptor>
+      <Adaptor Name="es.bsc.compss.gat.master.GATAdaptor">
+        <SubmissionSystem>
+          <Interactive/>
+        </SubmissionSystem>
+        <BrokerAdaptor>sshtrilead</BrokerAdaptor>
+      </Adaptor>
+    </Adaptors>
+    <SharedDisks>
+      <AttachedDisk Name="gpfs">
+        <MountPoint>/gpfs/</MountPoint>
+      </AttachedDisk>
+      <AttachedDisk Name="gpfs2">
+        <MountPoint>/.statelite/tmpfs/gpfs/</MountPoint>
+      </AttachedDisk>
+    </SharedDisks>
+  </ComputeNode>
+
+  <ComputeNode Name="s02r2b40-ib0">
+    <Processor Name="MainProcessor">
+      <ComputingUnits>48</ComputingUnits>
+      <Architecture>Intel</Architecture>
+      <Speed>2.6</Speed>
+    </Processor>
+    <Memory>
+      <Size>92</Size>
+    </Memory>
+    <OperatingSystem>
+      <Type>Linux</Type>
+      <Distribution>SMP</Distribution>
+      <Version>3.0.101-0.35-default</Version>
+    </OperatingSystem>
+    <Software>
+      <Application>JAVA</Application>
+      <Application>PYTHON</Application>
+      <Application>EXTRAE</Application>
+      <Application>COMPSS</Application>
+    </Software>
+    <Adaptors>
+      <Adaptor Name="es.bsc.compss.nio.master.NIOAdaptor">
+        <SubmissionSystem>
+          <Interactive/>
+        </SubmissionSystem>
+        <Ports>
+          <MinPort>43001</MinPort>
+          <MaxPort>43002</MaxPort>
+          <RemoteExecutionCommand>none</RemoteExecutionCommand>
+        </Ports>
+      </Adaptor>
+      <Adaptor Name="es.bsc.compss.gat.master.GATAdaptor">
+        <SubmissionSystem>
+          <Interactive/>
+        </SubmissionSystem>
+        <BrokerAdaptor>sshtrilead</BrokerAdaptor>
+      </Adaptor>
+    </Adaptors>
+    <SharedDisks>
+      <AttachedDisk Name="gpfs">
+        <MountPoint>/gpfs/</MountPoint>
+      </AttachedDisk>
+      <AttachedDisk Name="gpfs2">
+        <MountPoint>/.statelite/tmpfs/gpfs/</MountPoint>
+      </AttachedDisk>
+    </SharedDisks>
+  </ComputeNode>
+
+</ResourcesList>

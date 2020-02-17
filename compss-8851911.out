@@ -1,0 +1,193 @@
+[ INFO] Inferred PYTHON language
+-------- Launch arguments --------
+Master:                    s02r2b39
+Workers:                    s02r2b40
+Tasks per Node:            -1
+CPUs per Node:             48
+GPUs per Node:             0
+FPGAs per Node:            0
+CPU Affinity:              automatic
+GPU Affinity:              automatic
+FPGA Affinity:             automatic
+FPGA reprogram command:    
+Network:                   -ib0
+Worker in Master CPUs:     24
+Worker in Master Memory:   92
+Master Port:               43429
+Master WD:                 /home/bsc19/bsc19275/haddock/code
+Worker WD:                 /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF
+Master JVM Opts:           
+Workers JVM Opts:          -Xms16000m,-Xmx92000m,-Xmn1600m
+Worker in Master JVM Opts: 
+Streaming Backend:         null
+Streaming Master Port:     null
+Library Path:              /home/bsc19/bsc19275/haddock/code
+Classpath:                 /home/bsc19/bsc19275/haddock/code
+Pythonpath:                /home/bsc19/bsc19275/haddock/code
+Appdir:			           /home/bsc19/bsc19275/haddock/code
+Lang:                      python
+Python Interpreter:        python
+Python version:            2
+Python virtual env:        null
+Python propagate virt env.:true
+Python use MPI worker    .:false
+COMM:                      es.bsc.compss.nio.master.NIOAdaptor
+Prolog:                    
+Epilog:                    
+Storage conf:              null
+Task execution:            compss
+To COMPSs:                  -d /home/bsc19/bsc19275/haddock/code/simple_wf.py
+-----------------------------------
+ 
+[LAUNCH_COMPSS] XML - Begin generation of project and resources files
+[LAUNCH_COMPSS] Master will run in s02r2b39
+[LAUNCH_COMPSS] List of workers:  s02r2b40
+[LAUNCH_COMPSS] XML - Generating project at /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/project_1581932486.xml
+[LAUNCH_COMPSS] Worker WD mkdir: srun -n1 -N1 --nodelist=s02r2b39 bash -c "mkdir -p /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF && chmod +rx /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF"
+Worker WD mkdir: srun -n1 -N1 --nodelist=s02r2b40 bash -c "mkdir -p /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF && chmod +rx /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF"
+[LAUNCH_COMPSS] XML - Generating resources at /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/resources_1581932486.xml
+[LAUNCH_COMPSS] XML - Generation of project and resources files finished
+[LAUNCH_COMPSS] XML - Project.xml:   /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/project_1581932486.xml
+[LAUNCH_COMPSS] XML - Resources.xml: /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/resources_1581932486.xml
+---- Executing Prolog actions ----
+------ Launching COMPSs application ------
+[LAUNCH_COMPSS] Launching worker in master with id 1 and command: srun -n1 -N1 --nodelist=-n1 -N1 --nodelist=s02r2b39 /apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             null             0                          0                          true             5             5             s02r2b39-ib0             43001             s02r2b39-ib0             43429             44000             24             0             0             automatic             automatic             automatic             -1             817db0f5-e32b-4066-ba3d-6afcbfd067ec             python             /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0             /apps/COMPSs/2.6             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             0             null             1             null             compss             false             python             2             null             true             false
+[LAUNCH_COMPSS] Launching worker with id 2 and command: srun -n1 -N1 --nodelist=-n1 -N1 --nodelist=s02r2b40 /apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             null             3             -Xms16000m -Xmx92000m -Xmn1600m             0                          true             5             5             s02r2b40-ib0             43001             s02r2b39-ib0             43429             44000             48             0             0             automatic             automatic             automatic             -1             817db0f5-e32b-4066-ba3d-6afcbfd067ec             python             /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b40-ib0             /apps/COMPSs/2.6             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             /home/bsc19/bsc19275/haddock/code             0             null             2             null             compss             false             python             2             null             true             false
+[LAUNCH_COMPSS] Number of spawned workers: 2
+[LAUNCH_COMPSS] Waiting 10s ...
+PERSISTENT_WORKER.sh
+- HostName:            s02r2b39-ib0
+- WorkerPort:          43001
+- WorkingDir:          /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0
+- InstallDir:          /apps/COMPSs/2.6
+- Streaming Type:      null
+- Streaming Port:      44000
+PERSISTENT_WORKER.sh
+- HostName:            s02r2b40-ib0
+- WorkerPort:          43001
+- WorkingDir:          /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b40-ib0
+- InstallDir:          /apps/COMPSs/2.6
+- Streaming Type:      null
+- Streaming Port:      44000
+- Computing Units CPU: 24
+- Computing Units GPU: 0
+- Computing Units GPU: 0
+- Limit Of Tasks:      -1
+- JVM Opts:            
+- AppUUID:             817db0f5-e32b-4066-ba3d-6afcbfd067ec
+- Lang:                python
+- AppDir:              /home/bsc19/bsc19275/haddock/code
+- libPath:             /home/bsc19/bsc19275/haddock/code
+- Classpath:           /home/bsc19/bsc19275/haddock/code
+- Pythonpath:          /home/bsc19/bsc19275/haddock/code
+- Python Interpreter   python
+- Python Version       2
+- Python Virtual Env.  null
+- Python Propagate Virtual Env.  true
+- Python MPI Worker.  false
+- Tracing:             0
+- ExtraeFile:          null
+- HostId:              1
+- StorageConf:         null
+- ExecType:            compss
+- Persistent:          false
+- Computing Units CPU: 48
+- Computing Units GPU: 0
+- Computing Units GPU: 0
+- Limit Of Tasks:      -1
+- JVM Opts:             -Xms16000m -Xmx92000m -Xmn1600m
+- AppUUID:             817db0f5-e32b-4066-ba3d-6afcbfd067ec
+- Lang:                python
+- AppDir:              /home/bsc19/bsc19275/haddock/code
+- libPath:             /home/bsc19/bsc19275/haddock/code
+- Classpath:           /home/bsc19/bsc19275/haddock/code
+- Pythonpath:          /home/bsc19/bsc19275/haddock/code
+- Python Interpreter   python
+- Python Version       2
+- Python Virtual Env.  null
+- Python Propagate Virtual Env.  true
+- Python MPI Worker.  false
+- Tracing:             0
+- ExtraeFile:          null
+- HostId:              2
+- StorageConf:         null
+- ExecType:            compss
+- Persistent:          false
+[persistent_worker.sh] Calling NIOWorker of host s02r2b39-ib0
+Calling NIOWorker
+Cmd: java      -XX:+PerfDisableSharedMem     -XX:-UsePerfData     -XX:+UseG1GC     -Dlog4j.configurationFile=/apps/COMPSs/2.6/Runtime/configuration/log/COMPSsWorker-log4j.debug     -Dcompss.streaming=null     -Dcompss.python.interpreter=python     -Dcompss.python.version=2     -Dcompss.python.virtualenvironment=null     -Dcompss.python.propagate_virtualenvironment=true     -Djava.library.path=/home/bsc19/bsc19275/haddock/code:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../../Bindings/bindings-common/lib:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../../Bindings/c/lib:/apps/PAPI/5.5.1/lib:/apps/INTEL/2017.4/mkl/lib/intel64:/apps/INTEL/2017.4/impi/2017.3.196/lib64:/apps/INTEL/2017.4/lib/intel64:/apps/JDK/8u131/jre/lib/amd64/server:/home/bsc19/bsc19275/haddock/code -classpath /home/bsc19/bsc19275/haddock/code:/apps/COMPSs/2.6/Runtime/compss-engine.jar:/integratedtoolkit/lib/IT.jar:/integratedtoolkit/lib/IT.jar::home/bsc19/bsc19275/sdp.jar:home/bsc19/bsc19275/sdp.jar:/home/bsc19/bsc19275/haddock/code/*.jar:/home/bsc19/bsc19275/haddock/code/lib/*.jar:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../adaptors/nio/worker/compss-adaptors-nio-worker.jar es.bsc.compss.nio.worker.NIOWorker true 5 5 s02r2b39-ib0 43001 s02r2b39-ib0 43429 44000 24 0 0 automatic automatic automatic -1 817db0f5-e32b-4066-ba3d-6afcbfd067ec python /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0 /apps/COMPSs/2.6 /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code 0 null 1 null compss false python 2 null true false
+[persistent_worker.sh] Calling NIOWorker of host s02r2b40-ib0
+Calling NIOWorker
+Cmd: java  -Xms16000m -Xmx92000m -Xmn1600m     -XX:+PerfDisableSharedMem     -XX:-UsePerfData     -XX:+UseG1GC     -Dlog4j.configurationFile=/apps/COMPSs/2.6/Runtime/configuration/log/COMPSsWorker-log4j.debug     -Dcompss.streaming=null     -Dcompss.python.interpreter=python     -Dcompss.python.version=2     -Dcompss.python.virtualenvironment=null     -Dcompss.python.propagate_virtualenvironment=true     -Djava.library.path=/home/bsc19/bsc19275/haddock/code:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../../Bindings/bindings-common/lib:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../../Bindings/c/lib:/apps/PAPI/5.5.1/lib:/apps/INTEL/2017.4/mkl/lib/intel64:/apps/INTEL/2017.4/impi/2017.3.196/lib64:/apps/INTEL/2017.4/lib/intel64:/apps/JDK/8u131/jre/lib/amd64/server:/home/bsc19/bsc19275/haddock/code -classpath /home/bsc19/bsc19275/haddock/code:/apps/COMPSs/2.6/Runtime/compss-engine.jar:/integratedtoolkit/lib/IT.jar:/integratedtoolkit/lib/IT.jar::home/bsc19/bsc19275/sdp.jar:home/bsc19/bsc19275/sdp.jar:/home/bsc19/bsc19275/haddock/code/*.jar:/home/bsc19/bsc19275/haddock/code/lib/*.jar:/apps/COMPSs/2.6/Runtime/scripts/system/adaptors/nio/../../../../adaptors/nio/worker/compss-adaptors-nio-worker.jar es.bsc.compss.nio.worker.NIOWorker true 5 5 s02r2b40-ib0 43001 s02r2b39-ib0 43429 44000 48 0 0 automatic automatic automatic -1 817db0f5-e32b-4066-ba3d-6afcbfd067ec python /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b40-ib0 /apps/COMPSs/2.6 /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code /home/bsc19/bsc19275/haddock/code 0 null 2 null compss false python 2 null true false
+[LAUNCH_COMPSS] Executing Master with command: /apps/COMPSs/2.6/Runtime/scripts/user/runcompss --project=/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/project_1581932486.xml             --resources=/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/resources_1581932486.xml             --uuid=817db0f5-e32b-4066-ba3d-6afcbfd067ec             --specific_log_dir=/home/bsc19/bsc19275/.COMPSs/8851911/             --master_name=s02r2b39-ib0             --master_port=43429             --streaming=null             --streaming_master_port=null             --jvm_master_opts=             --jvm_workers_opts=-Xms16000m,-Xmx92000m,-Xmn1600m  -d /home/bsc19/bsc19275/haddock/code/simple_wf.py
+[  INFO] Using default execution type: compss
+[  INFO] Inferred PYTHON language
+
+----------------- Executing simple_wf.py --------------------------
+
+Binding debug is activated
+[BINDING-COMMONS]  -  @GS_On  -  Creating the JVM
+[BINDING_COMMONS]  -  @create_vm  -  reading file in JVM_OPTIONS_FILE
+[BINDING_COMMONS]  -  @create_vm  -  Launching JVM
+[BINDING_COMMONS]  -  @create_vm  -  JVM Ready
+[BINDING-COMMONS]  -  @GS_On  -  Creating runtime object
+[(567)    API]  -  Deploying COMPSs Runtime v2.6 (build 20191110-1437.rb64656e825a88a4b49e60e5e505999f7b9866662)
+[BINDING-COMMONS]  -  @GS_On  -  Calling runtime start
+[(570)    API]  -  Starting COMPSs Runtime v2.6 (build 20191110-1437.rb64656e825a88a4b49e60e5e505999f7b9866662)
+[(570)    API]  -  Initializing components
+[(1035)    API]  -  Ready to process tasks
+[BINDING-COMMONS]  -  @Init JNI Methods
+[BINDING_COMMONS]  -  @Init JNI Direction Types
+[BINDING_COMMONS]  -  @Init JNI Stream Types
+[BINDING-COMMONS]  -  @Init JNI Types
+[BINDING_COMMONS]  -  @Init DONE
+[BINDING_COMMONS]  -  @Master JNI Init DONE
+[BINDING-COMMONS]  -  @GS_Get_AppDir - Getting application directory.
+[BINDING-COMMONS]  -  @GS_Get_AppDir  -  directory name: /home/bsc19/bsc19275/.COMPSs/8851911/
+
+[ WARNING ]:	dill module is not installed.
+		Dill is a pickle extension which is capable to serialize a wider variety of objects.
+		PyCOMPSs can work without dill, but it is recommended to have it installed.
+		You can install it via pip typing pip install dill, or (probably) with your package manager.
+
+[BINDING-COMMONS]  -  @GS_RegisterCE - Registering Core element.
+[(1075)    API]  -  Registering CoreElement simple_wf.prepare_pdb
+[(1076)    API]  -  	 - Implementation: simple_wf.prepare_pdb
+[(1076)    API]  -  	 - Constraints   : 
+[(1076)    API]  -  	 - Type          : METHOD
+[(1076)    API]  -  	 - ImplTypeArgs  : 
+[(1076)    API]  -  		 Arg: simple_wf
+[(1076)    API]  -  		 Arg: prepare_pdb
+[BINDING-COMMONS]  -  @GS_RegisterCE  -  Task registered: simple_wf.prepare_pdb
+[BINDING-COMMONS]  -  @GS_ExecuteTaskNew - Processing task execution in bindings-common. 
+[BINDING-COMMONS]  -  @GS_ExecuteTaskNew  -  Processing parameter 0
+[BINDING_COMMONS]  -  @process_param
+[BINDING-COMMONS]  -  @process_param  -  ENUM DATA_TYPE: 8
+[BINDING-COMMONS]  -  @process_param  -  String: IzFaSEk=
+[BINDING-COMMONS]  -  @process_param  -  ENUM DIRECTION: 0
+[BINDING-COMMONS]  -  @process_param  -  ENUM STD IO STREAM: 3
+[BINDING-COMMONS]  -  @process_param  -  PREFIX: null
+[BINDING-COMMONS]  -  @process_param  -  NAME: input_pdb_dir
+[BINDING-COMMONS]  -  @GS_ExecuteTaskNew  -  Processing parameter 1
+[BINDING_COMMONS]  -  @process_param
+[BINDING-COMMONS]  -  @process_param  -  ENUM DATA_TYPE: 8
+[BINDING-COMMONS]  -  @process_param  -  String: Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY=
+[BINDING-COMMONS]  -  @process_param  -  ENUM DIRECTION: 0
+[BINDING-COMMONS]  -  @process_param  -  ENUM STD IO STREAM: 3
+[BINDING-COMMONS]  -  @process_param  -  PREFIX: null
+[BINDING-COMMONS]  -  @process_param  -  NAME: haddock_img
+[BINDING-COMMONS]  -  @GS_ExecuteTaskNew  -  Processing parameter 2
+[BINDING_COMMONS]  -  @process_param
+[BINDING-COMMONS]  -  @process_param  -  ENUM DATA_TYPE: 9
+[BINDING-COMMONS]  -  @process_param  -  File: /home/bsc19/bsc19275/.COMPSs/8851911/tmpFiles/pycompsspM_08W/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1
+[BINDING-COMMONS]  -  @process_param  -  ENUM DIRECTION: 1
+[BINDING-COMMONS]  -  @process_param  -  ENUM STD IO STREAM: 3
+[BINDING-COMMONS]  -  @process_param  -  PREFIX: #
+[BINDING-COMMONS]  -  @process_param  -  NAME: $return_0
+[(1087)    API]  -  Creating task from method simple_wf.prepare_pdb
+[(1087)    API]  -  There are 3 parameters
+[(1087)    API]  -    Parameter 0 has type STRING_T
+[(1088)    API]  -    Parameter 1 has type STRING_T
+[(1088)    API]  -    Parameter 2 has type FILE_T
+[BINDING-COMMONS]  -  @GS_Open_File  -  Calling runtime OpenFile method  for /home/bsc19/bsc19275/.COMPSs/8851911/tmpFiles/pycompsspM_08W/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1 and mode 0 ...
+[(1093)    API]  -  Opening /home/bsc19/bsc19275/.COMPSs/8851911/tmpFiles/pycompsspM_08W/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1 in mode IN

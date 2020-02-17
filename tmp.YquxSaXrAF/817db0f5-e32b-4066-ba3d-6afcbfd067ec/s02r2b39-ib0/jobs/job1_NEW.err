@@ -1,0 +1,19 @@
+pycompss.worker.piper.piper_worker executor - Process-0 - Exception [Errno 2] No such file or directory: '1ZHI/run.param'
+Traceback (most recent call last):
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/worker/piper/commons/executor.py", line 390, in process_task
+    logger)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/worker/commons/worker.py", line 484, in execute_task
+    module = importlib.import_module(path)  # Python 2.7
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/bsc19/bsc19275/haddock/code/simple_wf.py", line 48, in <module>
+    run_param_path = prepare_pdb(pdb_dir, haddock_img)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/task.py", line 256, in task_decorator
+    return self.sequential_call(*args, **kwargs)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/task.py", line 1528, in sequential_call
+    return d_t.__call__(self.user_function)(*args, **kwargs)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/dummy/task.py", line 38, in wrapped_f
+    return f(*args, **kwargs)
+  File "/home/bsc19/bsc19275/haddock/code/simple_wf.py", line 14, in prepare_pdb
+    with open(os.path.join(input_pdb_dir, 'run.param'), 'w') as runparam:
+IOError: [Errno 2] No such file or directory: '1ZHI/run.param'

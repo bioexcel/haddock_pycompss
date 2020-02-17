@@ -1,0 +1,252 @@
+[(498)(2020-02-17 10:41:28,216)              Worker]    @main             -  maxSnd: 5
+[(502)(2020-02-17 10:41:28,220)              Worker]    @main             -  maxRcv: 5
+[(502)(2020-02-17 10:41:28,220)              Worker]    @main             -  WorkerName: s02r2b40-ib0
+[(502)(2020-02-17 10:41:28,220)              Worker]    @main             -  WorkerPort: 43001
+[(502)(2020-02-17 10:41:28,220)              Worker]    @main             -  MasterName: s02r2b39-ib0
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  MasterPort: 43429
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  StreamingPort: 44000
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  Computing Units CPU: 48
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  Computing Units GPU: 0
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  Computing Units FPGA: 0
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  User defined CPU Map: automatic
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  User defined GPU Map: automatic
+[(503)(2020-02-17 10:41:28,221)              Worker]    @main             -  User defined FPGA Map: automatic
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Limit Of Tasks: -1
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  App uuid: 817db0f5-e32b-4066-ba3d-6afcbfd067ec
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  WorkingDir:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b40-ib0
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Install Dir: /apps/COMPSs/2.6
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Tracing: 0
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Extrae config File: null
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Host: 2
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  LibraryPath: /home/bsc19/bsc19275/haddock/code
+[(504)(2020-02-17 10:41:28,222)              Worker]    @main             -  Classpath: /home/bsc19/bsc19275/haddock/code
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Pythonpath: /home/bsc19/bsc19275/haddock/code
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  StorageConf: null
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  executionType: COMPSS
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Persistent c: false
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Python interpreter: python
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Python version: 2
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Python virtual environment: null
+[(505)(2020-02-17 10:41:28,223)              Worker]    @main             -  Python propagate virtual environment: true
+[(506)(2020-02-17 10:41:28,224)              Worker]    @main             -  Python use MPI worker: false
+[(506)(2020-02-17 10:41:28,224)              Worker]    @main             -  Remove Sanbox WD: true
+[(506)(2020-02-17 10:41:28,224)       Communication]    @<init>           -  [NIO Agent] Debug: true
+[(506)(2020-02-17 10:41:28,224)              Worker]    @<init>           -  NIO Worker init
+[(508)(2020-02-17 10:41:28,226)             Tracing]    @init             -  Initializing NIO tracing level [0]
+[(511)(2020-02-17 10:41:28,229)              Worker]    @init             -  No streaming backend passed
+[(512)(2020-02-17 10:41:28,230)              Worker]    @init             -  No storage configuration file passed
+[(513)(2020-02-17 10:41:28,231)         ExecManager]    @<init>           -  Instantiate CPU Binder with 48 CUs
+[(587)(2020-02-17 10:41:28,305)        ThreadBinder]    @cessLsCpuOutput  -  Parsing LSCPU Output : Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                48
+On-line CPU(s) list:   0-47
+Thread(s) per core:    1
+Core(s) per socket:    24
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 85
+Model name:            Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz
+Stepping:              4
+CPU MHz:               2100.000
+CPU max MHz:           2101,0000
+CPU min MHz:           1000,0000
+BogoMIPS:              4190.16
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              1024K
+L3 cache:              33792K
+NUMA node0 CPU(s):     0-23
+NUMA node1 CPU(s):     24-47
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch ida arat epb pln pts dtherm intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc
+
+[(587)(2020-02-17 10:41:28,305)        ThreadBinder]    @cessLsCpuOutput  -  CPU Map constructed by Affinity per Numa Node
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @cessLsCpuOutput  -  CPU Map: 0-23/24-47
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Socket 0
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Registered slots: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Registered ids: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Socket 1
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Registered slots: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+[(588)(2020-02-17 10:41:28,306)        ThreadBinder]    @liarConstructor  -  [ThreadBinderCPUs] Registered ids: 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 
+[(589)(2020-02-17 10:41:28,307)         ExecManager]    @<init>           -  Instantiate GPU Binder with 0 CUs
+[(589)(2020-02-17 10:41:28,307)         ExecManager]    @<init>           -  Instantiate FPGA Binder with 0 CUs
+[(590)(2020-02-17 10:41:28,308)          ThreadPool]    @<init>           -  Initializing execution platform CPUThreadPool
+[(600)(2020-02-17 10:41:28,318)            Executor]    @<init>           -  Executor init
+[(601)(2020-02-17 10:41:28,319)            Executor]    @<init>           -  Executor init
+[(601)(2020-02-17 10:41:28,319)            Executor]    @<init>           -  Executor init
+[(601)(2020-02-17 10:41:28,319)            Executor]    @<init>           -  Executor init
+[(602)(2020-02-17 10:41:28,320)            Executor]    @<init>           -  Executor init
+[(602)(2020-02-17 10:41:28,320)            Executor]    @<init>           -  Executor init
+[(602)(2020-02-17 10:41:28,320)            Executor]    @<init>           -  Executor init
+[(602)(2020-02-17 10:41:28,320)            Executor]    @<init>           -  Executor init
+[(602)(2020-02-17 10:41:28,320)            Executor]    @<init>           -  Executor init
+[(603)(2020-02-17 10:41:28,321)            Executor]    @<init>           -  Executor init
+[(603)(2020-02-17 10:41:28,321)            Executor]    @<init>           -  Executor init
+[(603)(2020-02-17 10:41:28,321)            Executor]    @<init>           -  Executor init
+[(603)(2020-02-17 10:41:28,321)            Executor]    @<init>           -  Executor init
+[(603)(2020-02-17 10:41:28,321)            Executor]    @<init>           -  Executor init
+[(604)(2020-02-17 10:41:28,322)            Executor]    @<init>           -  Executor init
+[(604)(2020-02-17 10:41:28,322)            Executor]    @<init>           -  Executor init
+[(604)(2020-02-17 10:41:28,322)            Executor]    @<init>           -  Executor init
+[(604)(2020-02-17 10:41:28,322)            Executor]    @<init>           -  Executor init
+[(604)(2020-02-17 10:41:28,322)            Executor]    @<init>           -  Executor init
+[(605)(2020-02-17 10:41:28,323)            Executor]    @<init>           -  Executor init
+[(605)(2020-02-17 10:41:28,323)            Executor]    @<init>           -  Executor init
+[(605)(2020-02-17 10:41:28,323)            Executor]    @<init>           -  Executor init
+[(605)(2020-02-17 10:41:28,323)            Executor]    @<init>           -  Executor init
+[(605)(2020-02-17 10:41:28,323)            Executor]    @<init>           -  Executor init
+[(606)(2020-02-17 10:41:28,324)            Executor]    @<init>           -  Executor init
+[(606)(2020-02-17 10:41:28,324)            Executor]    @<init>           -  Executor init
+[(606)(2020-02-17 10:41:28,324)            Executor]    @<init>           -  Executor init
+[(606)(2020-02-17 10:41:28,324)            Executor]    @<init>           -  Executor init
+[(606)(2020-02-17 10:41:28,324)            Executor]    @<init>           -  Executor init
+[(607)(2020-02-17 10:41:28,325)            Executor]    @<init>           -  Executor init
+[(607)(2020-02-17 10:41:28,325)            Executor]    @<init>           -  Executor init
+[(607)(2020-02-17 10:41:28,325)            Executor]    @<init>           -  Executor init
+[(607)(2020-02-17 10:41:28,325)            Executor]    @<init>           -  Executor init
+[(607)(2020-02-17 10:41:28,325)            Executor]    @<init>           -  Executor init
+[(608)(2020-02-17 10:41:28,326)            Executor]    @<init>           -  Executor init
+[(608)(2020-02-17 10:41:28,326)            Executor]    @<init>           -  Executor init
+[(608)(2020-02-17 10:41:28,326)            Executor]    @<init>           -  Executor init
+[(608)(2020-02-17 10:41:28,326)            Executor]    @<init>           -  Executor init
+[(608)(2020-02-17 10:41:28,326)            Executor]    @<init>           -  Executor init
+[(609)(2020-02-17 10:41:28,327)            Executor]    @<init>           -  Executor init
+[(609)(2020-02-17 10:41:28,327)            Executor]    @<init>           -  Executor init
+[(609)(2020-02-17 10:41:28,327)            Executor]    @<init>           -  Executor init
+[(609)(2020-02-17 10:41:28,327)            Executor]    @<init>           -  Executor init
+[(609)(2020-02-17 10:41:28,327)            Executor]    @<init>           -  Executor init
+[(610)(2020-02-17 10:41:28,328)            Executor]    @<init>           -  Executor init
+[(610)(2020-02-17 10:41:28,328)            Executor]    @<init>           -  Executor init
+[(610)(2020-02-17 10:41:28,328)            Executor]    @<init>           -  Executor init
+[(610)(2020-02-17 10:41:28,328)            Executor]    @<init>           -  Executor init
+[(610)(2020-02-17 10:41:28,328)         ExecManager]    @init             -  Init Execution Manager
+[(611)(2020-02-17 10:41:28,329)          ThreadPool]    @start            -  Starting execution platform CPUThreadPool
+[(612)(2020-02-17 10:41:28,330)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 47
+[(612)(2020-02-17 10:41:28,330)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 46
+[(612)(2020-02-17 10:41:28,330)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 45
+[(612)(2020-02-17 10:41:28,330)            Executor]    @start            -  Executor started
+[(613)(2020-02-17 10:41:28,331)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 44
+[(613)(2020-02-17 10:41:28,331)            Executor]    @start            -  Executor started
+[(614)(2020-02-17 10:41:28,332)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 43
+[(614)(2020-02-17 10:41:28,332)            Executor]    @start            -  Executor started
+[(614)(2020-02-17 10:41:28,332)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 42
+[(615)(2020-02-17 10:41:28,333)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 41
+[(615)(2020-02-17 10:41:28,333)            Executor]    @start            -  Executor started
+[(615)(2020-02-17 10:41:28,333)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 40
+[(615)(2020-02-17 10:41:28,333)            Executor]    @start            -  Executor started
+[(616)(2020-02-17 10:41:28,334)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 39
+[(616)(2020-02-17 10:41:28,334)            Executor]    @start            -  Executor started
+[(616)(2020-02-17 10:41:28,334)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 38
+[(617)(2020-02-17 10:41:28,335)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 37
+[(617)(2020-02-17 10:41:28,335)            Executor]    @start            -  Executor started
+[(617)(2020-02-17 10:41:28,335)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 36
+[(617)(2020-02-17 10:41:28,335)            Executor]    @start            -  Executor started
+[(618)(2020-02-17 10:41:28,336)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 35
+[(618)(2020-02-17 10:41:28,336)            Executor]    @start            -  Executor started
+[(618)(2020-02-17 10:41:28,336)            Executor]    @start            -  Executor started
+[(618)(2020-02-17 10:41:28,336)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 34
+[(618)(2020-02-17 10:41:28,336)            Executor]    @start            -  Executor started
+[(619)(2020-02-17 10:41:28,337)            Executor]    @start            -  Executor started
+[(619)(2020-02-17 10:41:28,337)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 33
+[(620)(2020-02-17 10:41:28,338)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 32
+[(620)(2020-02-17 10:41:28,338)            Executor]    @start            -  Executor started
+[(620)(2020-02-17 10:41:28,338)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 31
+[(620)(2020-02-17 10:41:28,338)            Executor]    @start            -  Executor started
+[(621)(2020-02-17 10:41:28,339)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 30
+[(621)(2020-02-17 10:41:28,339)            Executor]    @start            -  Executor started
+[(621)(2020-02-17 10:41:28,339)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 29
+[(621)(2020-02-17 10:41:28,339)            Executor]    @start            -  Executor started
+[(622)(2020-02-17 10:41:28,340)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 28
+[(622)(2020-02-17 10:41:28,340)            Executor]    @start            -  Executor started
+[(623)(2020-02-17 10:41:28,341)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 27
+[(623)(2020-02-17 10:41:28,341)            Executor]    @start            -  Executor started
+[(623)(2020-02-17 10:41:28,341)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 26
+[(623)(2020-02-17 10:41:28,341)            Executor]    @start            -  Executor started
+[(624)(2020-02-17 10:41:28,342)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 25
+[(624)(2020-02-17 10:41:28,342)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 24
+[(624)(2020-02-17 10:41:28,342)            Executor]    @start            -  Executor started
+[(625)(2020-02-17 10:41:28,343)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 23
+[(625)(2020-02-17 10:41:28,343)            Executor]    @start            -  Executor started
+[(625)(2020-02-17 10:41:28,343)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 22
+[(625)(2020-02-17 10:41:28,343)            Executor]    @start            -  Executor started
+[(626)(2020-02-17 10:41:28,344)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 21
+[(626)(2020-02-17 10:41:28,344)            Executor]    @start            -  Executor started
+[(626)(2020-02-17 10:41:28,344)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 20
+[(626)(2020-02-17 10:41:28,344)            Executor]    @start            -  Executor started
+[(627)(2020-02-17 10:41:28,345)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 19
+[(627)(2020-02-17 10:41:28,345)            Executor]    @start            -  Executor started
+[(627)(2020-02-17 10:41:28,345)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 18
+[(627)(2020-02-17 10:41:28,345)            Executor]    @start            -  Executor started
+[(627)(2020-02-17 10:41:28,345)            Executor]    @start            -  Executor started
+[(628)(2020-02-17 10:41:28,346)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 17
+[(614)(2020-02-17 10:41:28,332)            Executor]    @start            -  Executor started
+[(629)(2020-02-17 10:41:28,347)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 16
+[(629)(2020-02-17 10:41:28,347)            Executor]    @start            -  Executor started
+[(629)(2020-02-17 10:41:28,347)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 15
+[(630)(2020-02-17 10:41:28,348)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 14
+[(630)(2020-02-17 10:41:28,348)            Executor]    @start            -  Executor started
+[(629)(2020-02-17 10:41:28,347)            Executor]    @start            -  Executor started
+[(630)(2020-02-17 10:41:28,348)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 13
+[(630)(2020-02-17 10:41:28,348)            Executor]    @start            -  Executor started
+[(631)(2020-02-17 10:41:28,349)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 12
+[(631)(2020-02-17 10:41:28,349)            Executor]    @start            -  Executor started
+[(631)(2020-02-17 10:41:28,349)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 11
+[(632)(2020-02-17 10:41:28,350)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 10
+[(632)(2020-02-17 10:41:28,350)            Executor]    @start            -  Executor started
+[(632)(2020-02-17 10:41:28,350)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 9
+[(631)(2020-02-17 10:41:28,349)            Executor]    @start            -  Executor started
+[(632)(2020-02-17 10:41:28,350)            Executor]    @start            -  Executor started
+[(633)(2020-02-17 10:41:28,351)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 8
+[(633)(2020-02-17 10:41:28,351)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 7
+[(632)(2020-02-17 10:41:28,350)            Executor]    @start            -  Executor started
+[(633)(2020-02-17 10:41:28,351)            Executor]    @start            -  Executor started
+[(634)(2020-02-17 10:41:28,352)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 6
+[(634)(2020-02-17 10:41:28,352)            Executor]    @start            -  Executor started
+[(634)(2020-02-17 10:41:28,352)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 5
+[(634)(2020-02-17 10:41:28,352)            Executor]    @start            -  Executor started
+[(635)(2020-02-17 10:41:28,353)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 4
+[(635)(2020-02-17 10:41:28,353)            Executor]    @start            -  Executor started
+[(635)(2020-02-17 10:41:28,353)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 3
+[(635)(2020-02-17 10:41:28,353)            Executor]    @start            -  Executor started
+[(636)(2020-02-17 10:41:28,354)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 2
+[(636)(2020-02-17 10:41:28,354)            Executor]    @start            -  Executor started
+[(636)(2020-02-17 10:41:28,354)            Executor]    @start            -  Executor started
+[(636)(2020-02-17 10:41:28,354)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 1
+[(637)(2020-02-17 10:41:28,355)          ThreadPool]    @start            -  Starting Thread CPUThreadPool compute thread # 0
+[(637)(2020-02-17 10:41:28,355)            Executor]    @start            -  Executor started
+[(637)(2020-02-17 10:41:28,355)            Executor]    @start            -  Executor started
+[(638)(2020-02-17 10:41:28,356)          ThreadPool]    @start            -  Started execution platform CPUThreadPool with 48
+[(638)(2020-02-17 10:41:28,356)            Executor]    @start            -  Executor started
+[(638)(2020-02-17 10:41:28,356)            Executor]    @start            -  Executor started
+[(639)(2020-02-17 10:41:28,357)              Worker]    @main             -    Initializing the TransferManager structures...
+[(642)(2020-02-17 10:41:28,360)        EventManager]    @<init>           -  Instantiating EventManager
+[(642)(2020-02-17 10:41:28,360)        EventManager]    @init             -  Initializing NIOEventManager
+[(646)(2020-02-17 10:41:28,364)            Listener]    @<init>           -  Instantiating NIOListener
+[(646)(2020-02-17 10:41:28,364)            Listener]    @init             -  Initializing NIOListener
+[(648)(2020-02-17 10:41:28,366)        EventManager]    @startServer      -  Starting server on NIOEventManager
+[(648)(2020-02-17 10:41:28,366)            Listener]    @startServer      -  Starting server on NIOListener
+[(653)(2020-02-17 10:41:28,371)            Listener]    @startServer      -  Server started inet 0.0.0.0/0.0.0.0:43001
+[(653)(2020-02-17 10:41:28,371)        EventManager]    @run              -  Starting NIOListener on NIOEventManager
+[(654)(2020-02-17 10:41:28,372)        EventManager]    @run              -  EventManager started
+[(654)(2020-02-17 10:41:28,372)            Listener]    @run              -  NIOListener started
+[(13067)(2020-02-17 10:41:40,785)          Connection]    @registerChannel  -  Associating Socket: 261682657 with connection: 874369062
+[(13068)(2020-02-17 10:41:40,786)          Connection]    @established      -   Connection 874369062 established.
+[(13083)(2020-02-17 10:41:40,801)          Connection]    @CurrentTransfer  -  Starting to process stage es.bsc.comm.stage.Reception@75e4221e[RECEIVE null null] in NIOConnection 874369062.
+[(13096)(2020-02-17 10:41:40,814)               Stage]    @otifyCompletion  -  Reception stage es.bsc.comm.stage.Reception@75e4221e[RECEIVE COMMAND OBJECT] completed in connection 874369062
+[(13096)(2020-02-17 10:41:40,814)       Communication]    @commandReceived  -  Received Command CommandCheckWorker for deployment ID 817db0f5-e32b-4066-ba3d-6afcbfd067ec on nodeName s02r2b40-ib0 through connection 874369062
+[(13098)(2020-02-17 10:41:40,816)          Connection]    @requestStage     -  Requesting transfer es.bsc.comm.stage.Submission@258678ff[SEND COMMAND OBJECT] on connection 874369062
+[(13098)(2020-02-17 10:41:40,816)          Connection]    @dleNextTransfer  -   NIOConnection 874369062 takes es.bsc.comm.stage.Submission@258678ff[SEND COMMAND OBJECT] to handle.
+[(13098)(2020-02-17 10:41:40,816)          Connection]    @CurrentTransfer  -  Starting to process stage es.bsc.comm.stage.Submission@258678ff[SEND COMMAND OBJECT] in NIOConnection 874369062.
+[(13101)(2020-02-17 10:41:40,819)          Connection]    @requestStage     -  Requesting transfer es.bsc.comm.stage.Shutdown@500fc068 on connection 874369062
+[(13102)(2020-02-17 10:41:40,820)               Stage]    @otifyCompletion  -  Submission stage es.bsc.comm.stage.Submission@258678ff[SEND COMMAND OBJECT] completed in connection 874369062
+[(13102)(2020-02-17 10:41:40,820)       Communication]    @writeFinished    -  Finished sending CommandCheckWorkerACK for deployment ID 817db0f5-e32b-4066-ba3d-6afcbfd067ec through connection 874369062
+[(13103)(2020-02-17 10:41:40,821)          Connection]    @dleNextTransfer  -   NIOConnection 874369062 takes es.bsc.comm.stage.Shutdown@500fc068 to handle.
+[(13103)(2020-02-17 10:41:40,821)          Connection]    @dleNextTransfer  -  NIOConnection 874369062 processing shtudown stage es.bsc.comm.stage.Shutdown@500fc068
+[(13103)(2020-02-17 10:41:40,821)          Connection]    @closeConnection  -  Requesting connection 874369062 close.
+[(13103)(2020-02-17 10:41:40,821)            Listener]    @closeChannel     -  Cancelling key for channel 261682657
+[(13104)(2020-02-17 10:41:40,822)            Listener]    @closeChannel     -  Closing channel 261682657
+[(13104)(2020-02-17 10:41:40,822)          Connection]    @registerChannel  -  Unregistering Socket  with connection: 874369062
+[(13104)(2020-02-17 10:41:40,822)       Communication]    @nectionFinished  -  Connection 874369062 finished

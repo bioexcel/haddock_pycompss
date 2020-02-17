@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project>
+  <MasterNode>
+    <SharedDisks>
+      <AttachedDisk Name="gpfs">
+        <MountPoint>/gpfs/</MountPoint>
+      </AttachedDisk>
+      <AttachedDisk Name="gpfs2">
+        <MountPoint>/.statelite/tmpfs/gpfs/</MountPoint>
+      </AttachedDisk>
+    </SharedDisks>
+  </MasterNode>
+
+  <ComputeNode Name="s02r2b39-ib0">
+    <InstallDir>/apps/COMPSs/2.6</InstallDir>
+    <WorkingDir>/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF</WorkingDir>
+    <Application>
+      <LibraryPath>/home/bsc19/bsc19275/haddock/code</LibraryPath>
+    </Application>
+  </ComputeNode>
+ 
+  <ComputeNode Name="s02r2b40-ib0">
+    <InstallDir>/apps/COMPSs/2.6</InstallDir>
+    <WorkingDir>/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF</WorkingDir>
+    <Application>
+      <LibraryPath>/home/bsc19/bsc19275/haddock/code</LibraryPath>
+    </Application>
+  </ComputeNode>
+ 
+</Project>

@@ -8,7 +8,7 @@ from pycompss.api.parameter import *
 from pycompss.api.api import compss_wait_on
 import subprocess
 
-@task(input_pdb_dir, haddock_img, returns=string )
+@task(input_pdb_dir=IN, haddock_img=IN, returns=1)
 def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddock24.sif'):
     pdb_id = os.path.basename(input_pdb_dir)
     with open(os.path.join(input_pdb_dir, 'run.param'), 'w') as runparam:
@@ -36,16 +36,17 @@ def prepare_pdb(input_pdb_dir, haddock_img='/scratch/tmp/pmxHDD/BM5-clean/haddoc
         return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
 
 
-@task(input_run1_air_dir, haddock_img)
+@task(input_run1_air_dir=IN, haddock_img=IN)
 def run_haddock(input_run1_air_dir, haddock_img):
     os.chdir(input_run1_air_dir)
     singularity_cmd = [haddock_img, "/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
     subprocess.run(singularity_cmd, shell=True)
     
-pdbs_dir=""
-haddock_img=""
+pdbs_dir="/home/bsc19/bsc19275/haddock/BM5-clean/HADDOCK-ready/"
+haddock_img="/home/bsc19/bsc19275/haddock/BM5-clean/haddock24.sif"
 for pdb_dir in os.listdir(pdbs_dir):
-    run_param_path = prepare_pdb(pdbs_dir, haddock_img)
+    run_param_path = prepare_pdb(pdb_dir, haddock_img)
     compss_wait_on(run_param_path)
     run_haddock(pdbs_dir+'/run1-ranair', haddock_img)
+    break
     

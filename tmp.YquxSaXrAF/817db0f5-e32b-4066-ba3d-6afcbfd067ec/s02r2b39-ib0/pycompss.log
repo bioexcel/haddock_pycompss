@@ -1,0 +1,189 @@
+2020-02-17 10:41:41,882 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] piper_worker.py wake up
+2020-02-17 10:41:41,883 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] -----------------------------
+2020-02-17 10:41:41,883 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Persistent worker parameters:
+2020-02-17 10:41:41,883 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] -----------------------------
+2020-02-17 10:41:41,883 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Debug          : True
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Tracing        : False
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Tasks per node : 24
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Pipe Pairs     : 
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute0.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute0.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute1.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute1.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute2.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute2.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute3.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute3.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute4.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute4.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute5.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute5.inbound
+2020-02-17 10:41:41,884 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute6.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute6.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute7.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute7.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute8.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute8.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute9.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute9.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute10.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute10.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute11.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute11.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute12.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute12.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute13.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute13.inbound
+2020-02-17 10:41:41,885 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute14.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute14.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute15.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute15.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute16.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute16.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute17.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute17.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute18.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute18.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute19.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute19.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute20.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute20.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute21.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute21.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute22.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute22.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER]                  * PIPE IN /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute23.outbound OUT /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/pipe_-1474076435_compute23.inbound
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Storage conf.  : null
+2020-02-17 10:41:41,886 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] -----------------------------
+2020-02-17 10:41:41,887 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 0
+2020-02-17 10:41:41,896 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 1
+2020-02-17 10:41:41,897 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 2
+2020-02-17 10:41:41,898 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] Starting process
+2020-02-17 10:41:41,899 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 3
+2020-02-17 10:41:41,899 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-1] Starting process
+2020-02-17 10:41:41,900 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 4
+2020-02-17 10:41:41,901 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-2] Starting process
+2020-02-17 10:41:41,902 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 5
+2020-02-17 10:41:41,902 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-3] Starting process
+2020-02-17 10:41:41,903 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 6
+2020-02-17 10:41:41,903 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-4] Starting process
+2020-02-17 10:41:41,904 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 7
+2020-02-17 10:41:41,905 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-5] Starting process
+2020-02-17 10:41:41,906 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 8
+2020-02-17 10:41:41,906 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-6] Starting process
+2020-02-17 10:41:41,907 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 9
+2020-02-17 10:41:41,907 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-7] Starting process
+2020-02-17 10:41:41,908 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 10
+2020-02-17 10:41:41,909 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-8] Starting process
+2020-02-17 10:41:41,910 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 11
+2020-02-17 10:41:41,910 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-9] Starting process
+2020-02-17 10:41:41,911 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 12
+2020-02-17 10:41:41,912 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-10] Starting process
+2020-02-17 10:41:41,914 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 13
+2020-02-17 10:41:41,915 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-11] Starting process
+2020-02-17 10:41:41,916 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 14
+2020-02-17 10:41:41,916 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-12] Starting process
+2020-02-17 10:41:41,917 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 15
+2020-02-17 10:41:41,917 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-13] Starting process
+2020-02-17 10:41:41,918 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 16
+2020-02-17 10:41:41,919 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-14] Starting process
+2020-02-17 10:41:41,920 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 17
+2020-02-17 10:41:41,920 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-15] Starting process
+2020-02-17 10:41:41,921 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 18
+2020-02-17 10:41:41,922 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-16] Starting process
+2020-02-17 10:41:41,923 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 19
+2020-02-17 10:41:41,923 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-17] Starting process
+2020-02-17 10:41:41,924 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 20
+2020-02-17 10:41:41,925 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-18] Starting process
+2020-02-17 10:41:41,926 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 21
+2020-02-17 10:41:41,926 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-19] Starting process
+2020-02-17 10:41:41,927 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 22
+2020-02-17 10:41:41,928 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-20] Starting process
+2020-02-17 10:41:41,929 DEBUG pycompss.worker.piper.piper_worker piper_worker - [PYTHON WORKER] Launching process 23
+2020-02-17 10:41:41,929 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-21] Starting process
+2020-02-17 10:41:41,931 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-22] Starting process
+2020-02-17 10:41:41,932 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-23] Starting process
+2020-02-17 10:41:41,936 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] Received EXECUTE_TASK 1 /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.out /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.err 0 1 true null METHOD simple_wf prepare_pdb 0 1 s02r2b39-ib0 1 false 9 1 3 8 3 null input_pdb_dir 1 IzFaSEk= 8 3 null haddock_img 1 Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY= 9 3 # $return_0 /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1 0 - s02r2b39,s02r2b39
+
+2020-02-17 10:41:41,937 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] Received message: EXECUTE_TASK 1 /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.out /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.err 0 1 true null METHOD simple_wf prepare_pdb 0 1 s02r2b39-ib0 1 false 9 1 3 8 3 null input_pdb_dir 1 IzFaSEk= 8 3 null haddock_img 1 Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY= 9 3 # $return_0 /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1 0 - s02r2b39,s02r2b39
+
+2020-02-17 10:41:41,937 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] Assigning affinity 0
+2020-02-17 10:41:41,937 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] Received task with id: 1
+2020-02-17 10:41:41,937 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] - TASK CMD: ['EXECUTE_TASK', '1', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.out', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.err', '0', '1', 'true', 'null', 'METHOD', 'simple_wf', 'prepare_pdb', '0', '1', 's02r2b39-ib0', '1', 'false', '9', '1', '3', '8', '3', 'null', 'input_pdb_dir', '1', 'IzFaSEk=', '8', '3', 'null', 'haddock_img', '1', 'Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY=', '9', '3', '#', '$return_0', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1']
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor - Received task in process: Process-0
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor -  - TASK CMD: ['EXECUTE_TASK', '1', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.out', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/jobs/job1_NEW.err', '0', '1', 'true', 'null', 'METHOD', 'simple_wf', 'prepare_pdb', '0', '1', 's02r2b39-ib0', '1', 'false', '9', '1', '3', '8', '3', 'null', 'input_pdb_dir', '1', 'IzFaSEk=', '8', '3', 'null', 'haddock_img', '1', 'Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY=', '9', '3', '#', '$return_0', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1']
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor - Process environment:
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor - 	 - Number of nodes: 1
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor - 	 - Hostnames: s02r2b39-ib0
+2020-02-17 10:41:41,938 DEBUG pycompss.worker.piper.piper_worker executor - 	 - Number of threads: 1
+2020-02-17 10:41:41,945 DEBUG pycompss.worker.piper.piper_worker worker - Begin task execution in Process-0
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Storage conf: null
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Params: ['simple_wf', 'prepare_pdb', '0', '1', 's02r2b39-ib0', '1', 'false', '9', '1', '3', '8', '3', 'null', 'input_pdb_dir', '1', 'IzFaSEk=', '8', '3', 'null', 'haddock_img', '1', 'Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY=', '9', '3', '#', '$return_0', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1']
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Path: simple_wf
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Method name: prepare_pdb
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Num slaves: 1
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Slaves: ['1']
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Cus: 1
+2020-02-17 10:41:41,946 DEBUG pycompss.worker.piper.piper_worker worker - Has target: false
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - Num Params: 3
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - Return Length: 1
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - Args: ['8', '3', 'null', 'input_pdb_dir', '1', 'IzFaSEk=', '8', '3', 'null', 'haddock_img', '1', 'Iy9ob21lL2JzYzE5L2JzYzE5Mjc1L2hhZGRvY2svQk01LWNsZWFuL2hhZGRvY2syNC5zaWY=', '9', '3', '#', '$return_0', '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1']
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - Processing parameters:
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - Parameter : 0
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Type : 8
+2020-02-17 10:41:41,947 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Std IO Stream : 3
+2020-02-17 10:41:41,948 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Prefix : null
+2020-02-17 10:41:41,948 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Name : input_pdb_dir
+2020-02-17 10:41:41,948 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Value: '1'
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - Parameter : 1
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Type : 8
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Std IO Stream : 3
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Prefix : null
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Name : haddock_img
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Value: '1'
+2020-02-17 10:41:41,949 DEBUG pycompss.worker.piper.piper_worker worker - Parameter : 2
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Type : 9
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Std IO Stream : 3
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Prefix : #
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Name : $return_0
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	 * Value: '/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1'
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - RUN TASK with arguments:
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	- Path: simple_wf
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	- Method/function name: prepare_pdb
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	- Has target: false
+2020-02-17 10:41:41,950 DEBUG pycompss.worker.piper.piper_worker worker - 	- # parameters: 3
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 	- Values:
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 
+Parameter input_pdb_dir
+	Type 8
+	File Name None
+	Key None
+	Content 1ZHI
+	Stream 3
+	Prefix null
+--------------------
+
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 
+Parameter haddock_img
+	Type 8
+	File Name None
+	Key None
+	Content /home/bsc19/bsc19275/haddock/BM5-clean/haddock24.sif
+	Stream 3
+	Prefix null
+--------------------
+
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 
+Parameter $return_0
+	Type 9
+	File Name /home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1:d1v2_1581932498703.IT:false:true:/home/bsc19/bsc19275/haddock/code/tmp.YquxSaXrAF/817db0f5-e32b-4066-ba3d-6afcbfd067ec/s02r2b39-ib0/sandBox/job_1/compss-serialized-obj_b1286934-5169-11ea-ab71-0894ef428f50-1
+	Key None
+	Content None
+	Stream 3
+	Prefix #
+--------------------
+
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 	- COMPSs types:
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 8
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 8
+2020-02-17 10:41:41,951 DEBUG pycompss.worker.piper.piper_worker worker - 		 9
+2020-02-17 10:41:41,952 DEBUG pycompss.worker.piper.piper_worker worker - Trying to import the user module: simple_wf
+2020-02-17 10:41:41,977 ERROR pycompss.worker.piper.piper_worker executor - Process-0 - Exception [Errno 2] No such file or directory: '1ZHI/run.param'
+Traceback (most recent call last):
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/worker/piper/commons/executor.py", line 390, in process_task
+    logger)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/worker/commons/worker.py", line 484, in execute_task
+    module = importlib.import_module(path)  # Python 2.7
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/bsc19/bsc19275/haddock/code/simple_wf.py", line 48, in <module>
+    run_param_path = prepare_pdb(pdb_dir, haddock_img)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/task.py", line 256, in task_decorator
+    return self.sequential_call(*args, **kwargs)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/task.py", line 1528, in sequential_call
+    return d_t.__call__(self.user_function)(*args, **kwargs)
+  File "/apps/COMPSs/2.6/Bindings/python/2/pycompss/api/dummy/task.py", line 38, in wrapped_f
+    return f(*args, **kwargs)
+  File "/home/bsc19/bsc19275/haddock/code/simple_wf.py", line 14, in prepare_pdb
+    with open(os.path.join(input_pdb_dir, 'run.param'), 'w') as runparam:
+IOError: [Errno 2] No such file or directory: '1ZHI/run.param'
+2020-02-17 10:41:41,982 DEBUG pycompss.worker.piper.piper_worker executor - Cleaning environment.
+2020-02-17 10:41:41,982 DEBUG pycompss.worker.piper.piper_worker executor - Restoring loggers.
+2020-02-17 10:41:41,982 DEBUG pycompss.worker.piper.piper_worker executor - *[PYTHON EXECUTOR] [Process-0] Finished task with id: 1
