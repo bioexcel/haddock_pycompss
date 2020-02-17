@@ -3,8 +3,12 @@
 import traceback
 import os
 import subprocess
+from pycompss.api.task import task
+from pycompss.api.constraint import constraint
+from pycompss.api.parameter import *
+from pycompss.api.api import compss_wait_on
 
-
+@task(input_pdb_dir=IN, haddock_img=IN, returns=1)
 def prepare_pdb(input_pdb_dir, haddock_img):
     print(os.getcwd())
     pdb_id = os.path.basename(input_pdb_dir)
@@ -13,7 +17,7 @@ def prepare_pdb(input_pdb_dir, haddock_img):
         runparam.write('AMBIG_TBL=./ambig.tbl' + '\n')
         runparam.write('N_COMP=2' + '\n')
         runparam.write('PDB_FILE1=./' + pdb_id + '_r_u.pdb' + '\n')
-        runparam.write('PDB_FILE1=./' + pdb_id + '_l_u.pdb' + '\n')
+        runparam.write('PDB_FILE2=./' + pdb_id + '_l_u.pdb' + '\n')
         runparam.write('PROJECT_DIR=./' + '\n')
         runparam.write('PROT_SEGID_1=A' + '\n')
         runparam.write('PROT_SEGID_2=B' + '\n')
@@ -24,27 +28,28 @@ def prepare_pdb(input_pdb_dir, haddock_img):
         os.chdir(input_pdb_dir)
         print(os.getcwd())
 
-        singularity_cmd = ["singularity", "run", "-e", haddock_img, "cp ligand* run1-ranair/toppar >&/dev/null"]
-        print(" ".join(singularity_cmd))
-        subprocess.run(singularity_cmd, shell=True)
+    singularity_cmd = ["singularity", "run", "-e", haddock_img, "'cp ligand* run1-ranair/toppar'"]
+    print(" ".join(singularity_cmd))
+    subprocess.call(singularity_cmd)
+       
+    print('Going to patch....\n\n\n\n')
+    os.chdir(input_pdb_dir + '/run1-ranair')
+    print("I'm in " + os.getcwd())
+    cmd = ["patch", "-p0",  "-i",  "/home/bsc19/bsc19275/haddock/BM5-clean/data/run.cns.patch-ranair"]
+    print(" ".join(cmd))
+    subprocess.call(cmd)
 
-        os.chdir('run1-ranair')
-        print("I'm in " + os.getcwd())
-        cmd = ["patch", "-p0",  "-i",  "../../../data/run.cns.patch-ranair"]
-        print(" ".join(cmd))
-        subprocess.run(cmd, shell=True)
-
-        return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
+    return os.path.abspath(os.path.join(input_pdb_dir, 'run.param'))
 
 
-
+@task(input_run1_air_dir=IN, haddock_img=IN)
 def run_haddock(input_run1_air_dir, haddock_img):
     print(os.getcwd())
     os.chdir(input_run1_air_dir)
     print(os.getcwd())
-    singularity_cmd = ["singularity", "run", "-e", haddock_img, "/usr/bin/python", "/software/haddock2.4/Haddock/RunHaddock.py"]
+    singularity_cmd = ["singularity", "run", "-e", haddock_img, "'/usr/bin/python /software/haddock2.4/Haddock/RunHaddock.py'"]
     print(" ".join(singularity_cmd))
-    subprocess.run(singularity_cmd, shell=True)
+    subprocess.call(singularity_cmd)
 
 
 if __name__ == '__main__':
@@ -54,4 +59,6 @@ if __name__ == '__main__':
 
     for pdb_dir in os.listdir(pdbs_dir):
         run_param_path = prepare_pdb(os.path.join(pdbs_dir, pdb_dir), haddock_img)
-        run_haddock(os.path.join(pdbs_dir, 'run1-ranair'), haddock_img)
+        run_param_path = run_param_path = compss_wait_on(run_param_path)
+        run_haddock(os.path.join(pdbs_dir, pdb_dir, 'run1-ranair'), haddock_img)
+        break
