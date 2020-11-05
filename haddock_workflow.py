@@ -38,20 +38,25 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
 
     logging.info(f'Setting working directory as {scratch_dir}')
 
+    # Get the target name and copy it to the working directory
     input_name = pathlib.PurePath(input_path).name
     target_path = f'{scratch_dir}/{input_name}'
+    logging.info(f'Step 1 - Copying {input_name} to {scratch_dir}')
     if os.path.isdir(target_path):
         logging.warning(f'{input_name} already in {scratch_dir}, REMOVING')
         shutil.rmtree(target_path)
-
-    logging.info(f'Step 1 - Copying {input_name} to {scratch_dir}')
     shutil.copytree(input_path, target_path)
 
+    # Each simulation needs its own run.param file, the code below will generate it
+    #  and save it in the appropriate location
     logging.info(f'Step 2 - Creating parameter file for {input_name}')
+
+    # check if target has hydrogen bond restraints
     hbond_rest_check = os.path.exists(os.path.join(target_path, 'hbonds.tbl'))
     if hbond_rest_check:
         logging.info('hydrogen-bond restraints found')
 
+    # check if target has ligand topologies and parameters
     ligand_toppar = glob.glob(f'{target_path}/ligand*')
     if ligand_toppar:
         logging.info(f'ligand toppar found')
@@ -73,10 +78,13 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
     with open(param_file, 'w') as fh:
         fh.write(param)
 
+    # Haddock execution is a two-step process, first it will read the run.param generated before
+    #  and create the appropriate folder structure
     logging.info('Step 3 - Initializing docking run')
     logging.debug(f'chdir into {target_path}')
     os.chdir(target_path)
     logging.debug(f'current path {os.getcwd()}')
+
     # FIXME: The singularity command might need to be tweaked
     singularity_cmd = [haddock_singularity_image]
     logging.debug(f'singularity command if {" ".join(singularity_cmd)}')
@@ -85,6 +93,7 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
     err = open(f'{target_path}/haddock.err', 'w')
     subprocess.call(singularity_cmd, stdout=out, stderr=err)
 
+    # We know if it worked if after this first execution there is a run1-patch directory
     run_dir = f'{target_path}/run1-{patch}'
     if not os.path.isdir(run_dir):
         logging.debug(f'run folder not found {run_dir}')
@@ -92,23 +101,29 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
         # FIXME: How should pycompss handle this?
         exit()
 
+    # If there are specific ligand topologies and parameters, they need to be copied to the correct location
     if ligand_toppar:
         logging.info('Copying ligand toppar to run directory')
         for toppar in ligand_toppar:
             shutil.copy(toppar, f'{run_dir}/toppar/')
 
+    # Each different patch represents a different set of parameters for the simulation
+    #  these parameters are changed in the haddock's main configuration file run.cns
     logging.info('Step 4 - Applying patch (run configuration)')
     patch_file = f'{patch_dir}/run.cns.patch-{patch}'
     logging.info(f'Selected patch is {patch_file}')
     logging.debug(f'chdir into {run_dir}')
     os.chdir(run_dir)
     logging.debug(f'current path {os.getcwd()}')
+
     cmd = ["patch", "-p0", "-i", patch_file]
     logging.debug(f'patch command is {" ".join(cmd)}')
     out = open(f'{run_dir}/patch.out', 'w')
     err = open(f'{run_dir}/patch.err', 'w')
     subprocess.call(cmd, stdout=out, stderr=err)
 
+    # Here we are running Haddock in "node-mode" which means that it will spawn as many process
+    #  as available cpunumbers, so here we change the cpunumber to our desired number
     logging.info('Step 5 - Parameter tweaking')
     logging.info(f'Changing parameter cpunumber_1 to {nproc}')
     with open('run.cns.edit', 'w') as out_fh:
@@ -116,60 +131,68 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
             for line in in_fh.readlines():
                 if line == '{===>} cpunumber_1=2;\n':
                     line = f"{{===>}} cpunumber_1={nproc};\n"
+
                 # =========================================#
-                # DEBUG ONLY, RUN A VERY SHORT SIMULATION
-                if line == '{===>} structures_0=10000;\n':
-                    line = '{===>} structures_0=2;\n'
-
-                if line == '{===>} structures_1=400;\n':
-                    line = '{===>} structures_1=2;\n'
-
-                if line == '{===>} anastruc_1=400;\n':
-                    line = '{===>} anastruc_1=2;\n'
-
-                if line == '{===>} waterrefine=400;\n':
-                    line = '{===>} waterrefine=2;\n'
+                #  DEBUG ONLY!! RUN A VERY SHORT SIMULATION
+                # if line == '{===>} structures_0=10000;\n':
+                #     line = '{===>} structures_0=2;\n'
+                # if line == '{===>} structures_1=400;\n':
+                #     line = '{===>} structures_1=2;\n'
+                # if line == '{===>} anastruc_1=400;\n':
+                #     line = '{===>} anastruc_1=2;\n'
+                # if line == '{===>} waterrefine=400;\n':
+                #     line = '{===>} waterrefine=2;\n'
                 # =========================================#
+
                 out_fh.write(line)
 
     shutil.copy('run.cns', 'run.cns.ori')
     shutil.copy('run.cns.edit', 'run.cns')
 
+    # Setup complete! At this point the simulation is ready to be executed,
+    #   no further configuration is needed
     logging.info(f'Simulation setup complete for {input_name}')
 
+    # Proceed to the proper execution
     logging.info('Step 6 - Running Haddock')
     logging.debug(f'current path is {os.getcwd()}')
+
     # FIXME: The singularity command might need to be tweaked
     singularity_cmd = [haddock_singularity_image]
     logging.debug(f'singularity command is {" ".join(singularity_cmd)}')
-    # FIXME: Figure out a way to save stdout/stderr
+
     out = open(f'{run_dir}/haddock.out', 'w')
     err = open(f'{run_dir}/haddock.err', 'w')
     process = subprocess.call(singularity_cmd, stdout=out, stderr=err)
+
     if process == 0:
         # It can have exit signal 0 but still fail,
-        #  make sure it worked by checking  for the final file of the simulation
+        #  make sure it worked by checking for the final file of the simulation
         if not os.path.isfile(f'{run_dir}/structures/it1/water/file.list'):
             # FIXME: How should pycompss handle this?
             logging.error(f'Something went wrong with target {input_name}')
             exit()
 
+        # Simulation ended successfuly!
         logging.info('Simulation complete :)')
-        logging.info('Compressing the run directory')
 
+        # Compress the directory and save it
+        # TODO: Here we should use multiprocessing compressing
         file_name = f"{scratch_dir}/{input_name}.tgz"
-        logging.info(f'Compressed filename {file_name}')
+        logging.info(f'Compressing the run directory to {file_name}')
+
         if os.path.isfile(file_name):
             logging.warning('Compressed file found, it will be DELETED')
             os.remove(file_name)
 
-        # TODO: Here we should also use multiprocessing compressing
         tar = tarfile.open(file_name, "w:gz")
         for name in os.listdir("."):
             tar.add(name)
         tar.close()
 
         logging.info('Compression done')
+
+        # Done!
         logging.info(f'Target {input_name} complete')
 
         return True
@@ -214,8 +237,10 @@ if __name__ == '__main__':
         if not os.path.isdir(wd):
             os.mkdir(wd)
 
+    # location where the patches are located
     patch_path = f'{args.bm5_path}/HADDOCK-ready/data'
 
+    # run haddock for each target in the BM5
     for pdb_dir in glob.glob(f'{args.bm5_path}/HADDOCK-ready/*/'):
 
         if pdb_dir in ['scripts', 'data', 'ana_scripts']:
