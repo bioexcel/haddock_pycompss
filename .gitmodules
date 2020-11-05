@@ -1,3 +1,4 @@
 [submodule "BM5-clean"]
 	path = BM5-clean
-	url = https://github.com/haddocking/BM5-clean
+	url = http://github.com/haddocking/BM5-clean
+	branch = master
