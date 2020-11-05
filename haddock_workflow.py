@@ -104,7 +104,9 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
     logging.debug(f'current path {os.getcwd()}')
     cmd = ["patch", "-p0", "-i", patch_file]
     logging.debug(f'patch command is {" ".join(cmd)}')
-    subprocess.call(cmd)
+    out = open(f'{run_dir}/patch.out', 'w')
+    err = open(f'{run_dir}/patch.err', 'w')
+    subprocess.call(cmd, stdout=out, stderr=err)
 
     logging.info('Step 5 - Parameter tweaking')
     logging.info(f'Changing parameter cpunumber_1 to {nproc}')
