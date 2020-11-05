@@ -80,7 +80,9 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
     singularity_cmd = [haddock_singularity_image]
     logging.debug(f'singularity command if {" ".join(singularity_cmd)}')
     logging.info('Executing Haddock singularity image')
-    subprocess.run(singularity_cmd)
+    out = open(f'{target_path}/haddock.out', 'w')
+    err = open(f'{target_path}/haddock.err', 'w')
+    subprocess.call(singularity_cmd, stdout=out, stderr=err)
 
     run_dir = f'{target_path}/run1-{patch}'
     if not os.path.isdir(run_dir):
@@ -138,7 +140,9 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
     singularity_cmd = [haddock_singularity_image]
     logging.debug(f'singularity command is {" ".join(singularity_cmd)}')
     # FIXME: Figure out a way to save stdout/stderr
-    process = subprocess.call(singularity_cmd)
+    out = open(f'{run_dir}/haddock.out', 'w')
+    err = open(f'{run_dir}/haddock.err', 'w')
+    process = subprocess.call(singularity_cmd, stdout=out, stderr=err)
     if process == 0:
         # It can have exit signal 0 but still fail,
         #  make sure it worked by checking  for the final file of the simulation
@@ -182,7 +186,6 @@ if __name__ == '__main__':
     parser.add_argument('--patch', default='ranair', type=str)
 
     parser.add_argument("bm5_path", help='')
-    parser.add_argument("patch_path", help='')
     parser.add_argument("haddock_img", help='')
 
     args = parser.parse_args()
@@ -198,9 +201,11 @@ if __name__ == '__main__':
         logging.info(f'Creating GPFS scratch dir at {scratch_path}')
         os.mkdir(scratch_path)
     else:
-        scratch_path = '/Users/rodrigo/projects/pycompss-run'
         logging.info('Running locally - use only for debug purposes')
+        scratch_path = f'{str(pathlib.PurePath(os.path.abspath(__file__)).parent)}/scratch'
         logging.info(f'scratch dir is {scratch_path}')
+        if not os.path.isdir(scratch_path):
+            os.mkdir(scratch_path)
 
     patch_path = f'{args.bm5_path}/HADDOCK-ready/data'
 
