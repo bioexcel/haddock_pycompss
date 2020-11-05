@@ -20,22 +20,23 @@ import logging
 
 # @constraint(computing_units="48")
 # @task(on_failure = 'IGNORE')
-def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=None, patch='ranair', nproc=48):
-    """Generate parameter input file for haddock and initialize run"""
+def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, patch='ranair', nproc=48):
+    """
+    Generate parameter input file for haddock and initialize run
+
+    Step 1 - Copy target folder to working directory
+    Step 2 - Create parameter file
+    Step 3 - Initialize the docking run
+    Step 4 - Apply the patch (run configuration)
+    Step 5 - Tweak parameters in Haddock run
+    Step 6 - Execute
+    """
     logging.debug(f'Current pwd is {os.getcwd()}')
 
     # process = psutil.Process(os.getpid())
     # process_name = process.name()
 
-    # FIXME: Is this the right way of defining the directory where the simulation will run?
-    if not scratch_dir:
-        key = 'TMPDIR'
-        value = os.getenv(key)
-        jobidkey = 'SLURM_JOB_ID'
-        jobid = os.getenv(jobidkey)
-        scratch_dir = value
-
-    logging.info(f'Setting scratch_dir as {scratch_dir}')
+    logging.info(f'Setting working directory as {scratch_dir}')
 
     input_name = pathlib.PurePath(input_path).name
     target_path = f'{scratch_dir}/{input_name}'
@@ -136,7 +137,7 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
 
     logging.info(f'Simulation setup complete for {input_name}')
 
-    logging.info('Running Haddock')
+    logging.info('Step 6 - Running Haddock')
     logging.debug(f'current path is {os.getcwd()}')
     # FIXME: The singularity command might need to be tweaked
     singularity_cmd = [haddock_singularity_image]
@@ -156,11 +157,7 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
         logging.info('Simulation complete :)')
         logging.info('Compressing the run directory')
 
-        if not scratch_dir:
-            file_name = f"{os.getenv('TMPDIR')}/{jobid}/{input_name}.tgz"
-        else:
-            file_name = f"{scratch_dir}/{input_name}.tgz"
-
+        file_name = f"{scratch_dir}/{input_name}.tgz"
         logging.info(f'Compressed filename {file_name}')
         if os.path.isfile(file_name):
             logging.warning('Compressed file found, it will be DELETED')
@@ -182,10 +179,14 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir=No
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
+    available_patches = ('cm', 'ranair', 'ti', 'ti5', 'refb')
     parser.add_argument('--log-level', default='INFO', choices=levels)
-    parser.add_argument('--local', action='store_true', default=False)
-    parser.add_argument('--nproc', default=48, type=int)
-    parser.add_argument('--patch', default='ranair', type=str)
+    parser.add_argument('--local', action='store_true', default=False,
+                        help='Set the workflow to local, this is used solely for debug purposes')
+    parser.add_argument('--nproc', default=48, type=int,
+                        help='Number of processors to be used, this value will be given to HADDOCK')
+    parser.add_argument('--patch', default='ranair', type=str, choices=available_patches,
+                        help='Which benchmark patch should be applied')
 
     parser.add_argument("bm5_path", help='')
     parser.add_argument("haddock_img", help='')
@@ -199,15 +200,19 @@ if __name__ == '__main__':
     logging.info('Initializing workflow runner')
 
     if not args.local:
-        scratch_path = f"/gpfs/scratch/bsc19/bsc19275/{os.getenv('SLURM_JOB_ID')}"
-        logging.info(f'Creating GPFS scratch dir at {scratch_path}')
-        os.mkdir(scratch_path)
+        # wd is the working directory, where the workflow will run
+        # FIXME: Is this the right way of defining the directory where the simulation will run?
+        wd = f"/gpfs/scratch/bsc19/bsc19275/{os.getenv('SLURM_JOB_ID')}"
+        logging.info(f'Creating GPFS scratch dir at {wd}')
+        os.mkdir(wd)
+
     else:
         logging.info('Running locally - use only for debug purposes')
-        scratch_path = f'{str(pathlib.PurePath(os.path.abspath(__file__)).parent)}/scratch'
-        logging.info(f'scratch dir is {scratch_path}')
-        if not os.path.isdir(scratch_path):
-            os.mkdir(scratch_path)
+        wd = f'{str(pathlib.PurePath(os.path.abspath(__file__)).parent)}/scratch'
+        # wd = 'Users/rodrigo/projects/haddock_pycompss/runs
+        logging.info(f'scratch dir is {wd}')
+        if not os.path.isdir(wd):
+            os.mkdir(wd)
 
     patch_path = f'{args.bm5_path}/HADDOCK-ready/data'
 
@@ -219,7 +224,7 @@ if __name__ == '__main__':
         run_haddock(input_path=pdb_dir,
                     patch_dir=patch_path,
                     haddock_singularity_image=args.haddock_img,
-                    scratch_dir=scratch_path,
+                    scratch_dir=wd,
                     patch=args.patch,
                     nproc=args.nproc)
 
