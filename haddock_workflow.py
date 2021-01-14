@@ -7,6 +7,7 @@ import shutil
 import pathlib
 import tarfile
 import logging
+import shlex
 # import traceback
 # import fileinput
 # import psutil
@@ -20,7 +21,7 @@ import logging
 
 # @constraint(computing_units="48")
 # @task(on_failure = 'IGNORE')
-def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, patch='ranair', nproc=48):
+def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair', nproc=48):
     """
     Generate parameter input file for haddock and initialize run
 
@@ -85,21 +86,20 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
     os.chdir(target_path)
     logging.debug(f'current path {os.getcwd()}')
 
-    # FIXME: The singularity command might need to be tweaked
-    singularity_cmd = [haddock_singularity_image]
-    logging.debug(f'singularity command if {" ".join(singularity_cmd)}')
-    logging.info('Executing Haddock singularity image')
+    logging.debug(f'HADDOCK command is {haddock_exec}')
+    logging.info('Executing HADDOCK')
     out = open(f'{target_path}/haddock.out', 'w')
     err = open(f'{target_path}/haddock.err', 'w')
-    subprocess.call(singularity_cmd, stdout=out, stderr=err)
+    subprocess.call(shlex.split(haddock_exec), stdout=out, stderr=err)
 
     # We know if it worked if after this first execution there is a run1-patch directory
     run_dir = f'{target_path}/run1-{patch}'
     if not os.path.isdir(run_dir):
-        logging.debug(f'run folder not found {run_dir}')
-        logging.error(f'Setup failed for input {input_name}')
+        logging.error(f'run folder not found {run_dir}')
+        logging.error(f'Setup failed for input {input_name}, check {target_path}/haddock.err')
+        
         # FIXME: How should pycompss handle this?
-        exit()
+        sys.exit()
 
     # If there are specific ligand topologies and parameters, they need to be copied to the correct location
     if ligand_toppar:
@@ -157,21 +157,19 @@ def run_haddock(input_path, patch_dir, haddock_singularity_image, scratch_dir, p
     logging.info('Step 6 - Running Haddock')
     logging.debug(f'current path is {os.getcwd()}')
 
-    # FIXME: The singularity command might need to be tweaked
-    singularity_cmd = [haddock_singularity_image]
-    logging.debug(f'singularity command is {" ".join(singularity_cmd)}')
+    logging.debug(f'HADDOCK command is {haddock_exec}')
 
     out = open(f'{run_dir}/haddock.out', 'w')
     err = open(f'{run_dir}/haddock.err', 'w')
-    process = subprocess.call(singularity_cmd, stdout=out, stderr=err)
+    process = subprocess.call(shlex.split(haddock_exec), stdout=out, stderr=err)
 
     if process == 0:
         # It can have exit signal 0 but still fail,
         #  make sure it worked by checking for the final file of the simulation
         if not os.path.isfile(f'{run_dir}/structures/it1/water/file.list'):
             # FIXME: How should pycompss handle this?
-            logging.error(f'Something went wrong with target {input_name}')
-            exit()
+            logging.error(f'Something went wrong with target {input_name}, check {run_dir}/haddock.err')
+            sys.exit()
 
         # Simulation ended successfuly!
         logging.info('Simulation complete :)')
@@ -203,16 +201,26 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
     available_patches = ('cm', 'ranair', 'ti', 'ti5', 'refb')
+    available_containers = ('singularity', 'docker')
     parser.add_argument('--log-level', default='INFO', choices=levels)
+
     parser.add_argument('--local', action='store_true', default=False,
                         help='Set the workflow to local, this is used solely for debug purposes')
-    parser.add_argument('--nproc', default=48, type=int,
-                        help='Number of processors to be used, this value will be given to HADDOCK')
-    parser.add_argument('--patch', default='ranair', type=str, choices=available_patches,
-                        help='Which benchmark patch should be applied')
 
-    parser.add_argument("bm5_path", help='')
-    parser.add_argument("haddock_img", help='')
+    parser.add_argument('--nproc', default=48, type=int, required=True,
+                        help='Number of processors to be used, this value will be given to HADDOCK')
+
+    parser.add_argument('--patch', default='ranair', type=str, choices=available_patches, required=True,
+                        help='Which benchmark patch should be applied')
+    
+    parser.add_argument('--container-type', choices=available_containers, required=True,
+                        help='foo help')
+    
+    parser.add_argument("--bm5-path", required=True, 
+                        help='')
+
+    parser.add_argument("--image", required=True, 
+                        help='')
 
     args = parser.parse_args()
 
@@ -222,8 +230,25 @@ if __name__ == '__main__':
 
     logging.info('Initializing workflow runner')
 
+    if args.container_type == 'singularity':
+        if not os.path.isfile(args.image):
+            logging.error(f'Singularity image {args.image} not found')
+        else:
+            haddock_cmd = args.image
+
+    elif args.container_type == 'docker':
+        cmd = f"docker inspect --type=image {args.image}"
+        p = subprocess.run(shlex.split(cmd),stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if p.returncode == 1:
+            logging.error(f'Docker image {args.image} not found')
+            sys.exit()
+        else:
+            # FIXME: How to make the docker image behave like the singularity? aka: as if it were an executable
+            haddock_cmd = f'docker run -ti -v `pwd`:/runs {args.image}'
+
     if not args.local:
         # wd is the working directory, where the workflow will run
+
         # FIXME: Is this the right way of defining the directory where the simulation will run?
         wd = f"/gpfs/scratch/bsc19/bsc19275/{os.getenv('SLURM_JOB_ID')}"
         logging.info(f'Creating GPFS scratch dir at {wd}')
@@ -248,7 +273,7 @@ if __name__ == '__main__':
 
         run_haddock(input_path=pdb_dir,
                     patch_dir=patch_path,
-                    haddock_singularity_image=args.haddock_img,
+                    haddock_exec=haddock_cmd,
                     scratch_dir=wd,
                     patch=args.patch,
                     nproc=args.nproc)
