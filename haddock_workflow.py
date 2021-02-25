@@ -5,9 +5,10 @@ import os
 import subprocess
 import shutil
 import pathlib
-import tarfile
+# import tarfile
 import logging
 import shlex
+import sys
 # import traceback
 # import fileinput
 # import psutil
@@ -18,19 +19,20 @@ import shlex
 # from pycompss.api.api import compss_wait_on
 # from pycompss.api.api import compss_barrier
 
+SCRATCH_PATH = ''
+
 
 # @constraint(computing_units="48")
 # @task(on_failure = 'IGNORE')
-def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair', nproc=48):
+def setup_haddock(input_path, scratch_dir, patch='ranair'):
     """
-    Generate parameter input file for haddock and initialize run
+    Generate parameter input file for HADDOCK
 
     Step 1 - Copy target folder to working directory
     Step 2 - Create parameter file
-    Step 3 - Initialize the docking run
-    Step 4 - Apply the patch (run configuration)
-    Step 5 - Tweak parameters in Haddock run
-    Step 6 - Execute
+
+    :param input_path: Directory of the simulation ex: /home/rodrigo/benchmark/1A2L
+    :param scratch_dir: Scratch directory
     """
     logging.debug(f'Current pwd is {os.getcwd()}')
 
@@ -57,11 +59,6 @@ def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair'
     if hbond_rest_check:
         logging.info('hydrogen-bond restraints found')
 
-    # check if target has ligand topologies and parameters
-    ligand_toppar = glob.glob(f'{target_path}/ligand*')
-    if ligand_toppar:
-        logging.info(f'ligand toppar found')
-
     param = 'HADDOCK_DIR=/software/haddock2.4\n'
     param += 'AMBIG_TBL=./ambig.tbl\n'
     param += 'N_COMP=2\n' + '\n'
@@ -79,29 +76,50 @@ def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair'
     with open(param_file, 'w') as fh:
         fh.write(param)
 
+    return
+
+
+def run_haddock(target_dir, patch_dir, patch, haddock_exec, nproc=48):
+    """
+    Executor function of HADDOCK.
+
+    Step 1 - Initialize the docking run
+    Step 2 - Apply the patch (run configuration)
+    Step 3 - Tweak parameters in Haddock run
+    Step 4 - Execute
+
+    :param target_dir: Directory of the simulation ex: /home/rodrigo/benchmark/1A2L
+    :param patch_dir: Location of the patch files ex: /home/rodrigo/benchmark/data
+    :param exec: HADDOCK executable
+    """
+
     # Haddock execution is a two-step process, first it will read the run.param generated before
     #  and create the appropriate folder structure
-    logging.info('Step 3 - Initializing docking run')
-    logging.debug(f'chdir into {target_path}')
-    os.chdir(target_path)
+    logging.info('Step 1 - Initializing docking run')
+    logging.debug(f'chdir into {target_dir}')
+    os.chdir(target_dir)
     logging.debug(f'current path {os.getcwd()}')
 
-    logging.debug(f'HADDOCK command is {haddock_exec}')
+    logging.debug(f'HADDOCK command is {exec}')
     logging.info('Executing HADDOCK')
-    out = open(f'{target_path}/haddock.out', 'w')
-    err = open(f'{target_path}/haddock.err', 'w')
+    out = open(f'{target_dir}/haddock.out', 'w')
+    err = open(f'{target_dir}/haddock.err', 'w')
     subprocess.call(shlex.split(haddock_exec), stdout=out, stderr=err)
 
     # We know if it worked if after this first execution there is a run1-patch directory
-    run_dir = f'{target_path}/run1-{patch}'
+    run_dir = f'{target_dir}/run1-{patch}'
     if not os.path.isdir(run_dir):
         logging.error(f'run folder not found {run_dir}')
-        logging.error(f'Setup failed for input {input_name}, check {target_path}/haddock.err')
-        
+        logging.error(f'Setup failed check {target_dir}/haddock.err')
+
         # FIXME: How should pycompss handle this?
         sys.exit()
 
     # If there are specific ligand topologies and parameters, they need to be copied to the correct location
+    # check if target has ligand topologies and parameters
+    ligand_toppar = glob.glob(f'{target_dir}/../ligand*')
+    if ligand_toppar:
+        logging.info('ligand toppar found')
     if ligand_toppar:
         logging.info('Copying ligand toppar to run directory')
         for toppar in ligand_toppar:
@@ -151,7 +169,7 @@ def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair'
 
     # Setup complete! At this point the simulation is ready to be executed,
     #   no further configuration is needed
-    logging.info(f'Simulation setup complete for {input_name}')
+    logging.info(f'Simulation setup complete {target_dir}')
 
     # Proceed to the proper execution
     logging.info('Step 6 - Running Haddock')
@@ -168,33 +186,11 @@ def run_haddock(input_path, patch_dir, haddock_exec, scratch_dir, patch='ranair'
         #  make sure it worked by checking for the final file of the simulation
         if not os.path.isfile(f'{run_dir}/structures/it1/water/file.list'):
             # FIXME: How should pycompss handle this?
-            logging.error(f'Something went wrong with target {input_name}, check {run_dir}/haddock.err')
+            logging.error(f'Something went wrong check {run_dir}/haddock.err')
             sys.exit()
 
         # Simulation ended successfuly!
         logging.info('Simulation complete :)')
-
-        # Compress the directory and save it
-        # TODO: Here we should use multiprocessing compressing
-        file_name = f"{scratch_dir}/{input_name}.tgz"
-        logging.info(f'Compressing the run directory to {file_name}')
-
-        if os.path.isfile(file_name):
-            logging.warning('Compressed file found, it will be DELETED')
-            os.remove(file_name)
-
-        tar = tarfile.open(file_name, "w:gz")
-        for name in os.listdir("."):
-            tar.add(name)
-        tar.close()
-
-        logging.info('Compression done')
-
-        # Done!
-        logging.info(f'Target {input_name} complete')
-
-        return True
-    return False
 
 
 if __name__ == '__main__':
@@ -212,15 +208,13 @@ if __name__ == '__main__':
 
     parser.add_argument('--patch', default='ranair', type=str, choices=available_patches, required=True,
                         help='Which benchmark patch should be applied')
-    
+
     parser.add_argument('--container-type', choices=available_containers, required=True,
                         help='foo help')
-    
-    parser.add_argument("--bm5-path", required=True, 
-                        help='')
 
-    parser.add_argument("--image", required=True, 
-                        help='')
+    parser.add_argument("--bm5-path", required=True, help='')
+
+    parser.add_argument("--image", required=True, help='')
 
     args = parser.parse_args()
 
@@ -238,7 +232,7 @@ if __name__ == '__main__':
 
     elif args.container_type == 'docker':
         cmd = f"docker inspect --type=image {args.image}"
-        p = subprocess.run(shlex.split(cmd),stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.run(shlex.split(cmd), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if p.returncode == 1:
             logging.error(f'Docker image {args.image} not found')
             sys.exit()
@@ -271,19 +265,11 @@ if __name__ == '__main__':
         if pdb_dir in ['scripts', 'data', 'ana_scripts']:
             continue
 
-        run_haddock(input_path=pdb_dir,
-                    patch_dir=patch_path,
-                    haddock_exec=haddock_cmd,
-                    scratch_dir=wd,
-                    patch=args.patch,
-                    nproc=args.nproc)
+        setup_haddock(input_path=pdb_dir,
+                      scratch_dir=SCRATCH_PATH)
 
-    # compss_barrier(no_more_tasks=True)
-    # file_name = "/gpfs/scratch/bsc19/bsc19275/" + jobid + "_runhaddock.tgz"
-    # tar = tarfile.open(file_name, "w:gz")
-    # os.chdir(gpfs_scratch)
-    # for name in os.listdir("."):
-    #     tar.add(name)
-    # tar.close()
-    # os.chdir("/gpfs/scratch/bsc19/bsc19275")
-    # shutil.rmtree(gpfs_scratch, ignore_errors=True)
+        run_haddock(target_dir=pdb_dir,
+                    patch_dir=patch_path,
+                    patch='ranair',
+                    haddock_exec=haddock_cmd,
+                    nproc=48)
