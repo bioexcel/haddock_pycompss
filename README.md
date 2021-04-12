@@ -1,43 +1,51 @@
-## Introduction
+# benchmark-tools
 
-_pending_
+## Configuration
 
-## Instructions
+To execute the benchmark tools you need a configuration file as below:
 
-Clone the repository with:
+```toml
+# ==============================
+# This general section is obligatory and must contain the following keys
+[ general ]
+# Location of HADDOCK
+haddock_path = '/Users/rodrigo/repos/haddock'
 
-`git clone --recursive http://github.com/bioexcel/haddock_pycompss`
+# Since HADDOCK runs on python2, we also need to point out its location
+python2 = '/usr/bin/python2'
 
-    $ python3 haddock_workflow.py -h
-    usage: haddock_workflow.py [-h]
-                               [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-                               [--local] 
-                               --nproc NPROC 
-                               --patch {cm,ranair,ti,ti5,refb} 
-                               --container-type {singularity,docker} 
-                               --bm5-path BM5_PATH 
-                               --image IMAGE
+# Location of your prepared dataset
+dataset_path = '/Users/rodrigo/repos/BM5-clean/HADDOCK-ready'
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
-      --local               Set the workflow to local, this is used solely for
-                            debug purposes
-      --nproc NPROC         Number of processors to be used, this value will be
-                            given to HADDOCK
-      --patch {cm,ranair,ti,ti5,refb}
-                            Which benchmark patch should be applied
-      --container-type {singularity,docker}
-                            foo help
-      --bm5-path BM5_PATH
-      --image IMAGE
+# We will automatically detect what is the receptor and the ligand
+#  inside your dataset folder, but they need the match the suffixes below
+receptor_suffix = '_r_u.pdb'
+ligand_suffix = '_l_u.pdb'
+# ==============================
 
-## Patches
+# Here you will define the scenarios to benchmark,
+#  each section must be named scenario_N
+# Each parameter inside the scenario corresponds to
+#  a parameter inside run.cns, except run_name and ambig_tbl
+#  that are used to setup the run
+[ scenario_1 ]
+run_name = 'true-interface'
+ambig_tbl = 'ambig.tbl'
+noecv = true
 
-These are edits to the `run.cns` for specific scenarios, located at `BM5-clean/HADDOCK-ready/data`
+[ scenario_2 ]
+run_name = 'CM'
+noecv = true
+cmrest = true
+cmtight = true
+# ==============================
+```
 
--   `cm` - center-of-mass restraints 
--   `ranair` - random restraints
--   `ti` - true interface
--   `ti5` - true interface 5A cutoff
--   `refb` -
+Create this file with whatever editor you prefer and save it in the location of your benchmark as benchmark_config.toml
+
+## Execution example
+
+
+    $ conda activate benchmark-tools
+    (benchmark-tools) $ cd benchmark-tools/example
+    (benchmark-tools) $ python ../run_benchmark.py scenarios.toml
